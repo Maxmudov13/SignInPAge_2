@@ -2,12 +2,11 @@ import SwiftUI
 
 struct SignIn: View {
     
-//    @EnvironmentObject var status: Status
+    @EnvironmentObject var status: Status
     
     @State var email: String = ""
     @State var password: String = ""
     
-    @State var ShowView = false
     
     var body: some View {
         NavigationView{
@@ -47,11 +46,11 @@ struct SignIn: View {
                 // SIGN IN  Button
                 Button(action: {
                     
-    //                UserDefaults.standard.set("iMtRo", forKey: "userid")
-    //                status.listen()
+                    UserDefaults.standard.set("iMtRo", forKey: "userid")
+                    status.listen()
                     
-                    UserDefaults.standard.set(true, forKey: "status")
-                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+//                    UserDefaults.standard.set(true, forKey: "status")
+//                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                     
                 }, label: {
                     HStack{
@@ -79,19 +78,17 @@ struct SignIn: View {
                         .foregroundColor(Color.blue)
                     
                     // // SIGN UP  Button
-                    Button{
-                        ShowView = true
-                    } label: {
+                    NavigationLink(destination: {
+                        SignUP()
+                    }, label: {
                         Text("Sign Up")
                             .font(.system(size: 18))
                             .foregroundColor(Color.red)
-                    }.sheet(isPresented: $ShowView, content: {
-                        SignUP()
                     })
                 }
                 
             }
-            //.navigationBarTitle("Instagram", displayMode: .inline)
+            .navigationBarTitle("Instagram", displayMode: .inline)
             .padding()
         }
     }

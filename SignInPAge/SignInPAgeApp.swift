@@ -11,7 +11,7 @@ import SwiftUI
 struct SignInPAgeApp: App {
     var body: some Scene {
         WindowGroup {
-            StartCenter() //.environmentObject(Status())
+            StartCenter().environmentObject(Status())
         }
     }
 }

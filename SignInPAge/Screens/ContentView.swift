@@ -16,11 +16,11 @@ struct ContentView: View {
             VStack{
                 Button{
                     
-//                    UserDefaults.standard.removeObject(forKey: "userid")
-//                    status.listen()
+                    UserDefaults.standard.removeObject(forKey: "userid")
+                    status.listen()
                     
-                    UserDefaults.standard.set(false, forKey: "status")
-                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+//                    UserDefaults.standard.set(false, forKey: "status")
+//                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                     
                 } label: {
                     Text("Log Out")
